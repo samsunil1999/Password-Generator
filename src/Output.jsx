@@ -10,9 +10,9 @@ export default function Output({ password }) {
         });
     }
     return (
-        <div className="output">
-            <p>{password}</p>
-            <FontAwesomeIcon icon={faCopy} style={{ color: "#ba55d3", }} onClick={copyToClipboard}/>
+        <div className="mt-[20px] p-[8px] bg-white h-[50px] w-full flex justify-between items-center border-solid border-[rbg(199,198,198)] border-[2px] " >
+            <p className='h-[20px] break-all overflow-x-auto'>{password}</p>
+            <FontAwesomeIcon icon={faCopy} style={{ color: "#ba55d3", }} onClick={copyToClipboard} className='h-[30px] pl-[2px] cursor-pointer sticky'/>
         </div>
     )
 }
