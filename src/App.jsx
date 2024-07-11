@@ -49,6 +49,7 @@ export default function App() {
   }
 
   useEffect(() => {
+    setIsVisible(false)
     if (Number(length) !== 0 && (params['capital-letter'] || params['number'] || params['small-letter'] || params['special'])) {
       setIsAllowedToGenerate(true)
     } else {
