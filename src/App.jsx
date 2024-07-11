@@ -94,7 +94,7 @@ export default function App() {
 
   return (
     
-    <div className="bg-[#fdd4d5] h-[450px] w-[700px] p-[20px] border-none rounded-[10px] shadow-[0_0_47px_10px_rgb(0,0,0,0.2)] xs:mx-2">
+    <div className="bg-[#fdd4d5] min-h-[450px] w-[700px] p-[20px] border-none rounded-[10px] shadow-[0_0_47px_10px_rgb(0,0,0,0.2)] xs:mx-2">
       <h2 className="text-center text-2xl ">Random Password Generator</h2>
       <div className="p-[20px]">
         <p>What all you want to include?</p>
