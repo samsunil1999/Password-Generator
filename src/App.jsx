@@ -26,9 +26,9 @@ export default function App() {
     // console.log("length value: ",e);
     // setLength(0)
     if (input === "length") {
-      if (e.target.value === ''){
+      if (e.target.value === '') {
         setLength(0)
-      }else {
+      } else {
         setLength(e.target.value)
       }
     }
@@ -49,12 +49,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (Number(length) !== 0 && (params['capital-letter'] || params['number'] || params['small-letter'] || params['special'])){
+    if (Number(length) !== 0 && (params['capital-letter'] || params['number'] || params['small-letter'] || params['special'])) {
       setIsAllowedToGenerate(true)
-    }else {
+    } else {
       setIsAllowedToGenerate(false)
     }
-  },[ length, params ])
+  }, [length, params])
 
 
   const handleGenratePassword = () => {
@@ -72,19 +72,19 @@ export default function App() {
     if (params['special']) {
       selectedValues.push('special')
     }
-    
+
     let pswrd = '';
     for (let i = 1; i <= length; i++) {
 
       // select value type
       let typeIndex = Math.floor(Math.random() * selectedValues.length)
-      
+
       // select char from the 
       let outputCharIndex = Math.floor(Math.random() * outputValueMap[selectedValues[typeIndex]].length)
       // concatinate to password string
       pswrd = pswrd.concat(outputValueMap[selectedValues[typeIndex]][outputCharIndex])
     }
-    
+
     setPassword(pswrd)
     setIsVisible(true)
   }
@@ -92,22 +92,16 @@ export default function App() {
 
 
   return (
-
-<<<<<<< Updated upstream
-    <div className="container">
-      <h2>Random Password Generator</h2>
-      <div className="box">
-=======
+    
     <div className="bg-[#fdd4d5] h-[450px] w-[700px] p-[20px] border-none rounded-[10px] shadow-[0_0_47px_10px_rgb(0,0,0,0.2)] xs:mx-2">
       <h2 className="text-center text-2xl ">Random Password Generator</h2>
       <div className="p-[20px]">
->>>>>>> Stashed changes
         <p>What all you want to include?</p>
-        <div className="content">
-          <div className="characters">
-            <input type="number" name="length" id="length" placeholder="Enter Length" onChange={handleInputs} />
+        <div className="p-[10px]">
+          <div className="leading-[30px] text-[15px] flex mb-[10px]">
+            <input type="number" name="length" id="length" placeholder="Enter Length" onChange={handleInputs} className='pl-[4px] rounded-[4px]' />
           </div>
-          <div className="characters">
+          <div className="custom-options-div">
             <label htmlFor="capital-letter">
               <input type="checkbox" name="capital-letter" id="capital-letter" onChange={handleInputs} />
               <span className='checkmark'></span>
@@ -115,7 +109,7 @@ export default function App() {
             </label>
           </div>
 
-          <div className="characters">
+          <div className="custom-options-div">
             <label htmlFor="small-letter">
               <input type="checkbox" name="small-letter" id="small-letter" onChange={handleInputs} />
               <span className='checkmark'></span>
@@ -123,7 +117,7 @@ export default function App() {
             </label>
           </div>
 
-          <div className="characters">
+          <div className="custom-options-div">
             <label htmlFor="number">
               <input type="checkbox" name="number" id="number" onChange={handleInputs} />
               <span className='checkmark'></span>
@@ -131,17 +125,22 @@ export default function App() {
             </label>
           </div>
 
-          <div className="characters">
+          <div className="custom-options-div">
             <label htmlFor="special">
               <input type="checkbox" name="special" id="special" onChange={handleInputs} />
               <span className='checkmark'></span>
-              Special characters i.e. ~!@#$%^&*()
+              <span>Special character </span>
+              <span>i.e. ~!@#$%^&*()</span>
             </label>
           </div>
 
-          <div className="btn-box" >
-            {isAllowedToGenerate && <button  onClick={handleGenratePassword}>Generate Password</button>}
-            {isVisible && <Output password={password}/>}
+          <div className="flex flex-col justify-center items-center" >
+            {isAllowedToGenerate &&
+              <button
+                onClick={handleGenratePassword}
+                className='h-[35px] flex items-center text-[18px] px-[10px] w-fit bg-[#ba55d3] text-white cursor-pointer border-none rounded-[10px]'
+              >Generate Password</button>}
+            {isVisible && <Output password={password} />}
           </div>
 
         </div>
