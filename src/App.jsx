@@ -100,7 +100,7 @@ export default function App() {
         <p>What all you want to include?</p>
         <div className="p-[10px]">
           <div className="leading-[30px] text-[15px] flex mb-[10px]">
-            <input type="number" name="length" id="length" placeholder="Enter Length" onChange={handleInputs} className='pl-[4px] rounded-[4px]' />
+            <input type="number" name="length" id="length" placeholder="Enter Length" onChange={handleInputs} className='pl-[4px] rounded-[4px] focus:outline-none' />
           </div>
           <div className="custom-options-div">
             <label htmlFor="capital-letter">
